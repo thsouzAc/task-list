@@ -39,23 +39,42 @@ input, select, textarea {
   text-align: center;
   color : rgb(0, 0, 0, 0.3)
 }
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    color: antiquewhite;
+  }
+  50% {
+    transform: scale(1.1);
+    color: lightgoldenrodyellow;
+  }
+  100% {
+    transform: scale(1);
+    color: antiquewhite;
+  }
+}
+
 .title {
   color: antiquewhite;
   font-size: 50px;
-  font-weight: 100;
+  font-weight: 600;
   text-align: center;
+  animation: pulse 2.5s infinite;
 }
+
 
 .container {
   display: block;
   max-width: 490px;
   margin: 0 auto;
   padding: 15rem;
+  overflow: hidden;
 }
 .main {
   background-color: rgb(1, 37, 37);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   width: 100%;
-  max-width: 600px; /* Define um limite para evitar que fique muito grande */
+  max-width: 600px;
   padding: 20px;
+  margin-top: 50px;
 }

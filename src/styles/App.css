@@ -1,0 +1,30 @@
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .icon-top-right,
+  .icon-bottom-left {
+    position: fixed; /* Fixando os ícones */
+    font-size: 150px; /* Tamanho do ícone */
+    color: white; /* Cor branca */
+    animation: rotate 10s linear infinite; /* Rotação contínua */
+    z-index: 10; /* Garante que os ícones fiquem na frente do conteúdo */
+  }
+  
+  .icon-top-right {
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da direita */
+    transform-origin: center; /* Garante que o ícone gire em torno do seu centro */
+  }
+  
+  .icon-bottom-left {
+    bottom: 20px; /* Distância da parte inferior */
+    left: 20px;   /* Distância da esquerda */
+    transform-origin: center; /* Garante que o ícone gire em torno do seu centro */
+  }
+  

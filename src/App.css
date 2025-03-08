@@ -47,8 +47,13 @@ ul.todo-list li {
   outline: none;
   width: 50px;
   color: rgb(0, 50, 73);
+  transition: transform 0.5s;
+
 }
 
+.remove:hover{
+  transform: scale(1.5);
+}
 .todo.check {
   color :rgba(34, 34, 34, 0.342);
   text-decoration: line-through;
