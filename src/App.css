@@ -3,15 +3,29 @@
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
   font-size: 1.5rem;
   font-style: italic;
+  max-width: 100%;
   width: 100%;
   padding: 16px 16px 18px 16px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+  border-radius: 20px;
 }
 
+.todo-list li {
+  list-style: none;
+  padding: 0;
+  margin : 0;
+  width: 100%;
+}
 ul.todo-list li {
   display: flex;
   align-items: center;
   border-top: 3px solid rgb(255, 255, 255);
   border-bottom: 1px solid rgb(255, 255, 255);
+  width: 100%;
+  background-color: aliceblue;
+  border-radius: 20px;
+  margin-bottom: 10px;
 }
 .todo {
   flex: 1;
@@ -22,6 +36,8 @@ ul.todo-list li {
   line-height: 1.2;
   transition: color 0.3s;
   padding: 10px 9px 17px 15px;
+  flex-grow: 1;
+  
 }
 
 .remove {
@@ -31,4 +47,9 @@ ul.todo-list li {
   outline: none;
   width: 50px;
   color: rgb(0, 50, 73);
+}
+
+.todo.check {
+  color :rgba(34, 34, 34, 0.342);
+  text-decoration: line-through;
 }

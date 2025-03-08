@@ -3,27 +3,41 @@ import { useState } from 'react'
 
 import {MdDelete} from 'react-icons/md';
 
-const App = ( ) => {
-  const [value, setValue] = useState<string>('');
-  
-  const inicialTodos = [
-    { id : 1, title : 'Aprender Inglês', check: false},
-    { id : 2, title : 'Aprender Dirigir', check: true},
-    { id : 3, title : 'Aprender Pilotar', check: false},
-    { id : 4, title : 'Aprender Docker', check: false},
-  ];
 
-  const [todos] = useState(inicialTodos);
+interface Todo {
+  id: number;
+  title: string;
+  check: boolean;
+}
+
+
+const App = ( ) => {
+
+
+  const [value, setValue] = useState<string>('');
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
   }
+
   const submit = () => {
+
+    if (value.trim() === "") return; // impede do que tarefas vazias sejam adicionadas na lista todos.
     console.log("submit", value);
+    
+    setTodos([...todos, { 
+      id : new Date().getTime(), 
+      title : value, 
+      check: false}])
     erase();
   }
+
   const erase = () => {
     setValue('');
   }
+
   const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if ( event.key === 'Enter' ) {
       submit();
@@ -33,6 +47,16 @@ const App = ( ) => {
     }
 
   }
+
+  const onToggle = (todo: Todo) => {
+    setTodos(
+      todos.map((obj) =>
+        (obj.id === todo.id ? { ...obj, check: !todo.check } : obj)
+      )
+    );
+    console.log('toggle', todos);
+  };
+  
   return (
     <section id = "App" className='container'>
         <header>
@@ -46,10 +70,14 @@ const App = ( ) => {
           onChange={onChange}
           onKeyDown={onKeyDown}
         />
-        <ul className='todo-list'>
+        <ul  className='todo-list'>
           {todos.map((todo) => (
             <li key={todo.id.toString()}>
-              <span className='todo'>{todo.title}</span>
+              <span 
+              className={['todo', todo.check ? 'check' : ''].join(' ')}
+              onClick={()=> onToggle(todo)}
+              onKeyPress={() => onToggle(todo)}
+              >{todo.title}</span>
                 <button 
                 className='remove'
                 type='button'>
