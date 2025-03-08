@@ -1,30 +1,34 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.new-todo {
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+  font-size: 1.5rem;
+  font-style: italic;
+  width: 100%;
+  padding: 16px 16px 18px 16px;
 }
 
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul.todo-list li {
+  display: flex;
+  align-items: center;
+  border-top: 3px solid rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+.todo {
+  flex: 1;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  word-break: break-all;
+  line-height: 1.2;
+  transition: color 0.3s;
+  padding: 10px 9px 17px 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.remove {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 50px;
+  color: rgb(0, 50, 73);
 }
